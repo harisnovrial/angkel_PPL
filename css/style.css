@@ -1,0 +1,75 @@
+body{
+    font-family: 'Francois One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+}
+#home{
+    background-image:url(bg.jpg);
+    height: 650px;
+}
+#judul{
+   margin-top: 200px;
+}
+.nav-item .nav-link{
+    color:white;
+}
+.kartu1{
+    margin-top: 200px;
+    /* x */
+}
+#cardangekl{
+    
+    display: flex;
+    justify-content: center;
+}
+
+#cardangekl .card{
+    color: none;
+    border: none;
+
+}
+.btn{
+    background-color: #ffb133;
+    border: none;
+}
+#cardaboutus{
+    display: flex;
+    justify-content: center;
+}
+#cardaboutus .card{
+    border: none;
+    margin-top: 30px;
+    color: none;
+    height: 200px
+}
+#angkel{
+    background-color: white;
+    margin-top: 80px;
+    height: 550px;
+}
+#aboutus{
+    margin-top: 80px;
+    height: 400px;
+}
+#jenis{
+    margin-top: 80px;
+}
+#contacts{
+    margin-top: 80px;
+    background-image:url(bg2.jpg);
+    height: 400px;
+}
+#cardjenis .card{
+    margin-top: 30px;
+    border:none;
+    color: none;
+    height: 200px
+}
+#cardjenis {
+    display: flex;
+    justify-content: center;
+}
+#kartu2 img{
+    display: flex;
+    justify-content: center;
+
+}
