@@ -22,7 +22,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand">
+                    <a href="index.php" class="navbar-brand">
                         <img src="aset/logo2.png" alt="logo" style="width:100px;" id="brandlog">
                     </a>
             </div>
