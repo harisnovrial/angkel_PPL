@@ -32,11 +32,11 @@
                 <div class="card-content">
                     <div id="login">
                         <div class="row">
-                            <form method="POST" action="#" class="col s12">
+                            <form method="POST" action="proses-login.php" class="col s12">
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <label for="username">NRP/No.AK*</label>
-                                        <input type="text" name="username" class="validate" required>
+                                        <input type="text" name="nrp" class="validate" required>
                                     </div>
                                 </div>
                                 <div class="row">

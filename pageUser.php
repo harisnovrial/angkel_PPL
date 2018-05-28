@@ -1,3 +1,7 @@
+<?php
+    include 'koneksi.php';
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,18 +31,18 @@
                     <img src="images/office.jpg">
                 </div>
             <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-            <a href="#name"><span class="name">John Doe</span></a>
+            <a href="#name"><span class="name"><?php echo $_SESSION['username'];?></span></a>
             <a href="#email"><span class="email">jdandturk@gmail.com</span></a>
             </div>
         </li>
         <li><a href="pagePesan.php" class="waves-effect">Pemesanan Angkutan</a></li>
         <li><a href="#!" class="waves-effect">Ganti Password</a></li>
         <li><div class="divider"></div></li>
-        <li><a class="waves-effect" href="#!">Logout</a></li>
+        <li><a class="waves-effect" href="logout.php">Logout</a></li>
     </ul>
 
     <div class="container">
-        <h3>Selamat datang, @nama</h3>
+        <h3>Selamat datang, <?php echo $_SESSION['nrp'] ;?></h3>
         <br>
         <h5>History Pesanan</h5>
         <table>
