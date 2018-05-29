@@ -61,7 +61,7 @@
                     </div>
                     <div id="register">
                         <div class="row center">
-                        <form method="POST" action="#" class="col s12">
+                        <form method="POST" action="proses-loginSopir.php" class="col s12">
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <label for="username">NRP*</label>
