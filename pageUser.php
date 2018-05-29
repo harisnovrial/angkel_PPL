@@ -32,7 +32,7 @@
                 </div>
             <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
             <a href="#name"><span class="name"><?php echo $_SESSION['username'];?></span></a>
-            <a href="#email"><span class="email">jdandturk@gmail.com</span></a>
+            <a href="#email"><span class="email"><?php echo $_SESSION['email'];?></span></a>
             </div>
         </li>
         <li><a href="pagePesan.php" class="waves-effect">Pemesanan Angkutan</a></li>
@@ -42,7 +42,7 @@
     </ul>
 
     <div class="container">
-        <h3>Selamat datang, <?php echo $_SESSION['nrp'] ;?></h3>
+        <h3>Selamat datang, <?php echo $_SESSION['username'] ;?></h3>
         <br>
         <h5>History Pesanan</h5>
         <table>
