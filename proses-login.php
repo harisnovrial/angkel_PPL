@@ -9,6 +9,7 @@
         session_start();
         $_SESSION['nrp'] = $NRP;
         $_SESSION['username']= $row['username'];
+        $_SESSION['email']= $row['email'];
         $_SESSION['status'] = 'login';
         header("location:pageUser.php");
     }else{
