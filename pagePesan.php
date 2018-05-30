@@ -1,3 +1,7 @@
+<?php
+    include 'koneksi.php';
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,17 +19,18 @@
 <body>
     <div class="container">
     <h3>Pemesanan Angkutan</h3>
-    <form action="" method="post" class="col s12">
+    <form action="proses-pemesanan.php" method="post" class="col s12">
+        <input type="hidden" name="nrp" value="<?php echo $_SESSION['nrp'];?>">
         <div class="row">
             <div class="input-field col s12">
                 <label for="username">Nama Pemesan</label>
-                <input type="text" name="namaPesan" required>
+                <input type="text" name="namaPemesan" value="<?php echo $_SESSION['username'];?>"required>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <label for="tanggal">Tanggal Pemesanan</label>
-                <input id="tanggal" type="text" class="datepicker">
+                <input id="tanggal" type="text" class="datepicker" name="tanggal" required>
             </div>
         </div>
         <div class="row">
@@ -52,10 +57,11 @@
                 <textarea name="ket" class="materialize-textarea"></textarea>
             </div>
         </div>
-    </form>
-    <button class="btn waves-effect waves-light" id="btnSubmit" type="submit" name="submit">Submit
+        <button class="btn waves-effect waves-light" id="btnSubmit" type="submit" name="submit">Submit
         <i class="material-icons right">send</i>
-    </button>
+        </button>
+    </form>
+    
     </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
     include 'koneksi.php';
     session_start();
+    $nrp = $_SESSION['nrp'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,9 +56,21 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td></td>
-                </tr>
+                <?php
+                    $no =1;
+                    $sql= "SELECT lokasi_antar,tanggal FROM pemesanan WHERE NRP_Pegawai ='$nrp'";
+                    $query= mysqli_query($db,$sql);
+
+                    while($tabel_pesan= mysqli_fetch_array($query)){
+                        echo '<tr>';
+                        echo '<td>'.$no.'</td>';
+                        echo '<td>'.$tabel_pesan['lokasi_antar'].'</td>';
+                        echo '<td>'.$tabel_pesan['tanggal'].'</td>';
+                        echo'</tr>';
+                        $no++;
+                    }
+                ?>
+        
             </tbody>
         </table>
     </div>
