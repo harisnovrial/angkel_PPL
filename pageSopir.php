@@ -36,7 +36,7 @@
             </div>
         </li>
         <li><a href="pageRusak.php" class="waves-effect">Input Kerusakan</a></li>
-        <li><a href="#!" class="waves-effect">Lihat Jadwal</a></li>
+        <li><a href="lihatJadwal.php" class="waves-effect">Lihat Jadwal</a></li>
         <li><a href="#!" class="waves-effect">Ganti Password</a></li>
         <li><div class="divider"></div></li>
         <li><a class="waves-effect" href="logout.php">Logout</a></li>

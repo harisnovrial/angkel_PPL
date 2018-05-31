@@ -47,8 +47,18 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <label for="jumPenum">Jumlah Penumpang</label>
-                <input type="text" name="jumPenum" required>
+                <select name="jenis">
+                    <option disabled selected>Pilih Jenis Kendaraan</option>
+                    <option>Bus Besar</option>
+                    <option>Bus Kecil</option>
+                    <option>Sedan</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="jumKend">Jumlah Kendaraan</label>
+                <input type="text" name="jumKend" required>
             </div>
         </div>
         <div class="row">
@@ -57,6 +67,21 @@
                 <textarea name="ket" class="materialize-textarea"></textarea>
             </div>
         </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="CP">Contact Person</label>
+                <input type="text" id="inputcp" name="CP" data-length="13" required>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="input-field col s12">
+                <label for="ket">Status</label>
+                <select name="status" disabled selected>
+                    <option disabled selected>Belum diproses</option>
+                    <option>Sudah diproses</option>  
+                </select>
+            </div>
+        </div> -->
         <button class="btn waves-effect waves-light" id="btnSubmit" type="submit" name="submit">Submit
         <i class="material-icons right">send</i>
         </button>
@@ -67,7 +92,16 @@
 </html>
 
 <script>
- $(document).ready(function(){
+$(document).ready(function(){
     $('.datepicker').datepicker();
+  });
+
+$(document).ready(function(){
+    $('select').formSelect();
+  });
+
+
+  $(document).ready(function() {
+    $('input#inputcp').characterCounter();
   });
 </script>
