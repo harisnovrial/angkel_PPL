@@ -4,7 +4,7 @@
     $username = $_POST['username'];
     $password = md5($_POST['password']);
 
-    $loginSopir = mysqli_query($db,"SELECT * FROM sopir WHERE id_supir='$username' and password='$password'");
+    $loginSopir = mysqli_query($db,"SELECT * FROM sopir WHERE NRP='$username' and password='$password'");
 
     if(mysqli_num_rows($loginSopir)>0){
         $rowSopir = mysqli_fetch_array($loginSopir);

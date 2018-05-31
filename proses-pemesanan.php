@@ -7,11 +7,15 @@
         $tanggal = date('Y-m-d',strtotime($tanggal));
         $lokjemput = $_POST['lokJemput'];
         $lokantar = $_POST['lokAntar'];
-        $jumpenum = $_POST['jumPenum'];
-        $ket= $_POST['ket'];
+        $jenis= $_POST['jenis'];
+        $jumKend= $_POST['jumKend'];
+        $ket= $_POST['ket']; 
+        $CP= $_POST['CP'];
+        $status= 'Belum diproses';
 
         //membuat sql nya
-        $sql = "INSERT INTO pemesanan(nama_pemesan,NRP_pegawai,tanggal,lokasi_jemput,lokasi_antar,jumlah_penumpang,keterangan) VALUES('$namaPemesan','$nrp','$tanggal','$lokjemput','$lokantar','$jumpenum','$ket')";
+        $sql = "INSERT INTO pemesanan(nama_pemesan,NRP_pegawai,tanggal,lokasi_jemput,lokasi_antar,jenis_kendaraan,jumlah_kendaraan,keterangan,cp,status) 
+                VALUES('$namaPemesan','$nrp','$tanggal','$lokjemput','$lokantar','$jenis','$jumKend','$ket','$CP','$status')";
         $pemesanan = mysqli_query($db,$sql);
 
         if($pemesanan){

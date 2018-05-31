@@ -2,6 +2,8 @@
     include 'koneksi.php';
     session_start();
     $nrp = $_SESSION['nrp'];
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +39,7 @@
             </div>
         </li>
         <li><a href="pagePesan.php" class="waves-effect">Pemesanan Angkutan</a></li>
-        <li><a href="#!" class="waves-effect">Ganti Password</a></li>
+        <li><?php echo'<a href="resetPassword.php?nrp='.$nrp.'" class="waves-effect">Ganti Password</a>';?></li>
         <li><div class="divider"></div></li>
         <li><a class="waves-effect" href="logout.php">Logout</a></li>
     </ul>
@@ -50,22 +52,32 @@
             <thead>
                 <tr>
                     <th>Nomor</th>
+                    <th>Lokasi Awal</th>
                     <th>Tujuan</th>
-                    <th>Tanggal</th>                
+                    <th>Tanggal</th>
+                    <th>Status</th>
+                    <th>Aksi</th>               
                 </tr>
             </thead>
 
             <tbody>
                 <?php
                     $no =1;
-                    $sql= "SELECT lokasi_antar,tanggal FROM pemesanan WHERE NRP_Pegawai ='$nrp'";
+                    $nrp = $_SESSION['nrp'];
+                    $sql= "SELECT id_pemesanan,lokasi_jemput,lokasi_antar,tanggal,status FROM pemesanan WHERE NRP_Pegawai ='$nrp'";
                     $query= mysqli_query($db,$sql);
 
                     while($tabel_pesan= mysqli_fetch_array($query)){
                         echo '<tr>';
                         echo '<td>'.$no.'</td>';
+                        echo '<td>'.$tabel_pesan['lokasi_jemput'].'</td>';
                         echo '<td>'.$tabel_pesan['lokasi_antar'].'</td>';
                         echo '<td>'.$tabel_pesan['tanggal'].'</td>';
+                        echo '<td>'.$tabel_pesan['status'].'</td>';
+                        echo '<td>';
+                        echo '<a href="form-edit.php?id='.$tabel_pesan['id_pemesanan'].'">Edit |</a>';
+                        echo '<a href="delete.php?id='.$tabel_pesan['id_pemesanan'].'"> Hapus</a>';
+                        echo'</td>';
                         echo'</tr>';
                         $no++;
                     }
