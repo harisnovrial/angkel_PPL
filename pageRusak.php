@@ -1,3 +1,7 @@
+<?php
+    include 'koneksi.php';
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +12,19 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
 	<link rel="stylesheet" type="text/css" href="css/pageRusak.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </head>
 <body>
     <div class="container">
         <h3>Kerusakan Angkutan</h3>
-        <form action="" method="post" class="col s12">
+        <form action="proses-kerusakan.php" method="post" class="col s12" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?php echo $_SESSION['nrp'];?>">
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="noAng">No. Angkutan</label>
-                    <input type="text" name="noAng" required>
+                    <label for="angkutan">No. Angkutan</label>
+                    <input type="text" name="angkutan" value="<?php echo $_SESSION['no_angkutan'];?>"  required>
                 </div>
             </div>
             <div class="row">
@@ -31,14 +36,20 @@
             <div class="row">
                 <div class="input-field col s12">
                     <label for="ket">Keterangan</label>
-                    <textarea name="noAng" type="text" class="materialize-textarea"></textarea>
+                    <textarea name="ket" type="text" class="materialize-textarea"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label for="tanggal">Tanggal</label>
+                    <input id="tanggal" type="text" class="datepicker" name="tanggal" required>
                 </div>
             </div>
             <div class="row">
                 <div class="file-field input-field">
                     <div class="btn">
                     <span>File</span>
-                    <input type="file">
+                    <input type="file" name="file">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path-validate" type="text">
@@ -52,3 +63,9 @@
     </div>
 </body>
 </html>
+
+<script>
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>
