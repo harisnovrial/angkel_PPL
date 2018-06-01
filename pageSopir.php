@@ -1,6 +1,7 @@
 <?php
     include 'koneksi.php';
     session_start();
+    $id = $_SESSION['nrp'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +36,7 @@
             <!-- <a href="#email"><span class="black-text email">jdandturk@gmail.com</span></a> -->
             </div>
         </li>
-        <li><a href="pageRusak.php" class="waves-effect">Input Kerusakan</a></li>
+        <li><?php echo'<a href="pageRusak.php?id='.$id.'" class="waves-effect">';?>Input Kerusakan</a></li>
         <li><a href="lihatJadwal.php" class="waves-effect">Lihat Jadwal</a></li>
         <li><a href="#!" class="waves-effect">Ganti Password</a></li>
         <li><div class="divider"></div></li>
@@ -52,14 +53,34 @@
                     <th>Nomor</th>
                     <th>No. Angkutan</th>
                     <th>Kerusakan</th>
-                    <th>Tanggal</th>                
+                    <th>Tanggal</th>
+                    <th>Status</th>
+                    <th>Aksi</th>                
                 </tr>
             </thead>
 
             <tbody>
-                <tr>
-                    <td></td>
-                </tr>
+                <?php
+                    $no = 1; 
+                    $sql = "SELECT * FROM kerusakan WHERE NRP_sopir = $id";
+                    $query = mysqli_query($db,$sql);
+
+                    while($row_kerusakan= mysqli_fetch_array($query)){
+                        echo '<tr>';
+                        echo '<td>'.$no.'</td>';
+                        echo '<td>'.$row_kerusakan['no_angkutan'].'</td>';
+                        echo '<td>'.$row_kerusakan['kerusakan'].'</td>';
+                        echo '<td>'.$row_kerusakan['tanggal'].'</td>';
+                        echo '<td>'.$row_kerusakan['status'].'</td>';
+                        echo '<td>';
+                        echo '<a href="form-edit.php?id='.$row_kerusakan['id_kerusakan'].'">Edit |</a>';
+                        echo '<a href="delete.php?id='.$row_kerusakan['id_kerusakan'].'"> Hapus |</a>';
+                        echo '<a href="cetak.php?id='.$row_kerusakan['file'].'"> Cetak</a>';
+                        echo'</td>';
+                        echo'</tr>';
+                        $no++;
+                    }
+                ?>
             </tbody>
         </table>
         <br>

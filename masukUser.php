@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="row left">
                                     <div class="col s12">
-                                        <a href="#">Lupa Password?</a>
+                                        <a href="lupaPassword.php">Lupa Password?</a>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="row left">
                                     <div class="col s12">
-                                        <a href="#">Lupa Password?</a>
+                                        <a href="lupaPassword.php">Lupa Password?</a>
                                     </div>
                                 </div>
                                 <div class="row">
