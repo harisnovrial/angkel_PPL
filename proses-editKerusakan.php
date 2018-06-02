@@ -7,11 +7,10 @@
         $keterangan = $_POST['keterangan'];
         $tanggal = $_POST['tanggal'];
         $tanggal = date('Y-m-d',strtotime($tanggal));
-        $file = $_POST['file'];
-
+        
 
         $sql = "UPDATE kerusakan SET no_angkutan ='$angkutan',keterangan='$keterangan',tanggal='$tanggal',
-                file ='$file' WHERE id_kerusakan='$id_kerusakan' AND NRP_sopir='$id_sopir'";
+                WHERE id_kerusakan='$id_kerusakan' AND NRP_sopir='$id_sopir'";
         $query = mysqli_query($db,$sql);
 
         if($query){

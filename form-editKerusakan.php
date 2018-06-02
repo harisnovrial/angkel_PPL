@@ -58,7 +58,7 @@
                     <input id="tanggal" type="text" class="datepicker" name="tanggal" value ="<?php echo $edit['tanggal']?>"required>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="file-field input-field">
                     <div class="btn">
                     <span>File</span>
@@ -68,7 +68,7 @@
                         <input class="file-path-validate" type="text">
                     </div>
                 </div>
-            </div>
+            </div> -->
             <button class="btn waves-effect waves-light" id="btnSubmit" type="submit" name="submit">Submit
                 <i class="material-icons right">send</i>
             </button>
