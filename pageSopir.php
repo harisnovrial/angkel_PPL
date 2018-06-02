@@ -73,9 +73,9 @@
                         echo '<td>'.$row_kerusakan['tanggal'].'</td>';
                         echo '<td>'.$row_kerusakan['status'].'</td>';
                         echo '<td>';
-                        echo '<a href="form-edit.php?id='.$row_kerusakan['id_kerusakan'].'">Edit |</a>';
-                        echo '<a href="delete.php?id='.$row_kerusakan['id_kerusakan'].'"> Hapus |</a>';
-                        echo '<a href="cetak.php?id='.$row_kerusakan['file'].'"> Cetak</a>';
+                        echo '<a href="form-editKerusakan.php?id='.$row_kerusakan['id_kerusakan'].'">Edit |</a>';
+                        echo '<a href="deleteKerusakan.php?id='.$row_kerusakan['id_kerusakan'].'"> Hapus |</a>';
+                        echo '<a href="cetakKerusakan.php?id='.$row_kerusakan['file'].'"> Cetak</a>';
                         echo'</td>';
                         echo'</tr>';
                         $no++;
