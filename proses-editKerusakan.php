@@ -9,7 +9,7 @@
         $tanggal = date('Y-m-d',strtotime($tanggal));
         
 
-        $sql = "UPDATE kerusakan SET no_angkutan ='$angkutan',keterangan='$keterangan',tanggal='$tanggal',
+        $sql = "UPDATE kerusakan SET no_angkutan ='$angkutan',keterangan='$keterangan',tanggal='$tanggal'
                 WHERE id_kerusakan='$id_kerusakan' AND NRP_sopir='$id_sopir'";
         $query = mysqli_query($db,$sql);
 
