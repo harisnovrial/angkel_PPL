@@ -38,7 +38,7 @@
         </li>
         <li><?php echo'<a href="pageRusak.php?id='.$id.'" class="waves-effect">';?>Input Kerusakan</a></li>
         <li><a href="lihatJadwal.php" class="waves-effect">Lihat Jadwal</a></li>
-        <li><a href="#!" class="waves-effect">Ganti Password</a></li>
+        <li><?php echo '<a href="page-gantiPasswordSopir.php?id='.$id.'" class="waves-effect">'?>Ganti Password</a></li>
         <li><div class="divider"></div></li>
         <li><a class="waves-effect" href="logout.php">Logout</a></li>
     </ul>
@@ -73,9 +73,9 @@
                         echo '<td>'.$row_kerusakan['tanggal'].'</td>';
                         echo '<td>'.$row_kerusakan['status'].'</td>';
                         echo '<td>';
-                        echo '<a href="form-edit.php?id='.$row_kerusakan['id_kerusakan'].'">Edit |</a>';
-                        echo '<a href="delete.php?id='.$row_kerusakan['id_kerusakan'].'"> Hapus |</a>';
-                        echo '<a href="cetak.php?id='.$row_kerusakan['file'].'"> Cetak</a>';
+                        echo '<a href="form-editKerusakan.php?id='.$row_kerusakan['id_kerusakan'].'">Edit |</a>';
+                        echo '<a href="deleteKerusakan.php?id='.$row_kerusakan['id_kerusakan'].'"> Hapus |</a>';
+                        echo '<a href="cetakKerusakan.php?id='.$row_kerusakan['file'].'"> Cetak</a>';
                         echo'</td>';
                         echo'</tr>';
                         $no++;
