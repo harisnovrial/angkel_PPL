@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <label for="ket">Keterangan</label>
-                    <textarea name="ket" type="text" class="materialize-textarea"><?php echo $edit['keterangan']?></textarea>
+                    <textarea name="keterangan" type="text" class="materialize-textarea"><?php echo $edit['keterangan']?></textarea>
                 </div>
             </div>
             <div class="row">
