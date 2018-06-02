@@ -1,9 +1,9 @@
 <?php
 include 'koneksi.php';
-    if(!$_GET['nrp']){
+    if(!$_GET['id']){
         header('location: pageUser.php');
     }
-    $nrp = $_GET['nrp'];
+    $nrp = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
