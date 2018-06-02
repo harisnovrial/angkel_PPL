@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="row left">
                                     <div class="col s12">
-                                        <a href="lupaPassword.php">Lupa Password?</a>
+                                        <a href="page-lupaPasswordSopir.php">Lupa Password?</a>
                                     </div>
                                 </div>
                                 <div class="row">
