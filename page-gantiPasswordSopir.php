@@ -1,7 +1,7 @@
 <?php
 include 'koneksi.php';
     if(!$_GET['id']){
-        header('location: pageUser.php');
+        header('location: pageSopir.php');
     }
     $nrp = $_GET['id'];
 ?>
