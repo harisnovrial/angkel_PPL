@@ -9,8 +9,8 @@
         $row = mysqli_fetch_array($login);
         session_start();
         $_SESSION['nrp'] = $NRP;
+        $_SESSION['pangkat']= $row['pangkat'];
         $_SESSION['username']= $row['username'];
-        $_SESSION['email']= $row['email'];
         header("location:pageUser.php");
     }else{
         header("location:masukUser.php");

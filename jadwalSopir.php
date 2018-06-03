@@ -1,7 +1,10 @@
 <?php
     include 'koneksi.php';
     session_start();
-    $id = $_SESSION['nrp'];
+    if(!$_GET['id']){
+        header('location: pageSopir.php');
+    }
+    $id = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,9 +40,8 @@
             </div>
         </li>
         <li><?php echo'<a href="pageRusak.php?id='.$id.'" class="waves-effect">';?>Input Kerusakan</a></li>
-        <li><a href="lihatJadwal.php" class="waves-effect">Lihat Jadwal</a></li>
+        <li><?php echo '<a href="JadwalSopir.php?id='.$id.'" class="waves-effect">';?>Lihat Jadwal</a></li>
         <li><?php echo '<a href="page-gantiPasswordSopir.php?id='.$id.'" class="waves-effect">'?>Ganti Password</a></li>
-        <li><a href="jadwalSopir.php" class="waves-effect">Lihat Jadwal</a></li>
         <li><div class="divider"></div></li>
         <li><a class="waves-effect" href="logout.php">Logout</a></li>
     </ul>
@@ -57,9 +59,20 @@
                 </tr>
             </thead>
             <tbody>
-                <td></td>
-                <td></td>
-                <td></td>
+               <?php
+                 $no =1;
+                 $sql = "SELECT * FROM jadwal WHERE NRP_pegawai = $id";
+                 $query = mysqli_query($db,$sql);
+
+                 while($row_jadwal = mysqli_fetch_array($query)){
+                    echo '<tr>';
+                    echo '<td>'.$no.'</td>';
+                    echo '<td>'.$row_jadwal['hari'].'</td>';
+                    echo '<td>'.$row_jadwal['jam'].'</td>';
+                    echo '</tr>';
+                    $no++;
+                 }
+               ?>
             </tbody>
         </table>
     </div>

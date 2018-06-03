@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Input Data Sopir</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
 	<link rel="stylesheet" type="text/css" href="css/pageAdmin.css">
@@ -33,40 +33,51 @@
             <li class="tab"><a class="waves-effect" href="admin-KonfirmAngkutan.php">Konfirmasi Angkutan</a></li>
             <li class="tab"><a class="waves-effect" href="admin-KonfirmBengkel.php">Konfirmasi Bengkel</a></li>
             <li><div class="divider"></div></li>
-            <li class="tab"><a class="waves-effect" href="#!">Logout</a></li>
+            <li class="tab"><a class="waves-effect" href="logout.php">Logout</a></li>
         </ul>
     </div>
     
     <div class="col s12 m8 l9" id="content">
         <h3>Input Data Sopir</h3>
         <div class="row">
-                                <form method="POST" action="proses-inputAnggota.php" class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <label for="username">NRP/NIP</label>
-                                            <input type="text" name="nrp" class="validate" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <label for="username">Nama</label>
-                                            <input type="text" name="nama" class="validate" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <label for="password">Password</label>
-                                            <input type="password" name="password" class="validate" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <a class="waves-effect waves-light btn orange"><input type="submit" value="submit" name="submit"></a>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-        
+            <form method="POST" action="proses-InputSopir.php" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="username">NRP/NIP</label>
+                        <input type="text" name="nrp" class="validate" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="username">Nama</label>
+                        <input type="text" name="nama" class="validate" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="telepon">No.Telepon</label>
+                        <input type="text" name="telepon" class="validate" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="validate" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="no_angkutan">No.Angkutan</label>
+                        <input type="text" name="no_angkutan" class="validate" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a class="waves-effect waves-light btn orange"><input type="submit" value="submit" name="submit"></a>
+                    </div>
+                </div>
+            </form>
+            </div>
     </div>
     </div>
 </body>
