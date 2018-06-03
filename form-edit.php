@@ -20,51 +20,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Testing edit</title>
+    <title>Form edit Pemesanan</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+	<link rel="stylesheet" type="text/css" href="css/formEdit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </head>
 <body>
-    <form action="proses-edit.php" method="POST">
-        <input type="hidden" name="id" value="<?php echo $edit['id_pemesanan']; ?>">
-        <input type="hidden" name="nrp" value="<?php echo $edit['NRP_Pegawai']; ?>">
-        <label for="username">Nama Pemesan</label>
-        <br>
-        <input type="text" name="namaPemesan" value="<?php echo $edit['nama_pemesan'];?>"required>
-        <br>
-        <label for="tanggal">Tanggal Pemesanan</label>
-        <br>
-        <input id="tanggal" type="text" class="datepicker" name="tanggal" value ="<?php echo $edit['tanggal'];?>"required>
-        <br>
-        <label for="username">Lokasi Jemput</label>
-        <br>
-        <input type="text" name="lokJemput" value="<?php echo $edit['lokasi_jemput']?>"required>
-        <br>
-        <label for="username">Lokasi Antar</label>
-        <br>
-        <input type="text" name="lokAntar" value="<?php echo $edit['lokasi_antar']?>"required>
-        <br>
-        <label for="username">Jenis Kendaraan</label>
-        <br>
-        <?php $jenis = $edit['jenis_kendaraan'];?>
-        <select name="jenis">
-            <option disabled selected>Pilih Jenis Kendaraan</option>
-            <option <?php echo ($jenis =='Bus Besar')? "selected":"" ?>>Bus Besar</option>
-            <option <?php echo ($jenis =='Bus Kecil')? "selected":"" ?>>Bus Kecil</option>
-            <option <?php echo ($jenis =='Sedan')? "selected":""?>>Sedan</option>
-        </select>
-        <br>
-        <label for="jumKend">Jumlah Kendaraan</label>
-        <br>
-        <input type="text" name="jumKend" value ="<?php echo $edit['jumlah_kendaraan']?>"required>
-        <br>
-        <label for="ket">Keterangan</label>
-        <br>
-        <textarea name="ket" class="materialize-textarea"><?php echo $edit['keterangan']?></textarea>
-        <br>
-        <label for="CP">Contact Person</label>
-        <br>
-        <input type="text" id="inputcp" name="CP"  value="<?php echo $edit['cp']?>"required>
-        <br>
-        <button  type="submit" name="submit">Submit</button>
-    </form>
+    <div class="container">
+        <div class="row">
+        <form action="proses-edit.php" method="POST" class="col s12">
+            <input type="hidden" name="id" value="<?php echo $edit['id_pemesanan']; ?>">
+            <input type="hidden" name="nrp" value="<?php echo $edit['NRP_Pegawai']; ?>">
+            <label for="username">Nama Pemesan</label>
+            <br>
+            <input type="text" name="namaPemesan" value="<?php echo $edit['nama_pemesan'];?>"required>
+            <br>
+            <label for="tanggal">Tanggal Pemesanan</label>
+            <br>
+            <input id="tanggal" type="text" class="datepicker" name="tanggal" value ="<?php echo $edit['tanggal'];?>"required>
+            <br>
+            <label for="username">Lokasi Jemput</label>
+            <br>
+            <input type="text" name="lokJemput" value="<?php echo $edit['lokasi_jemput']?>"required>
+            <br>
+            <label for="username">Lokasi Antar</label>
+            <br>
+            <input type="text" name="lokAntar" value="<?php echo $edit['lokasi_antar']?>"required>
+            <br>
+            <label for="username">Jenis Kendaraan</label>
+            <br>
+            <?php $jenis = $edit['jenis_kendaraan'];?>
+            <select name="jenis">
+                <option disabled selected>Pilih Jenis Kendaraan</option>
+                <option <?php echo ($jenis =='Bus Besar')? "selected":"" ?>>Bus Besar</option>
+                <option <?php echo ($jenis =='Bus Kecil')? "selected":"" ?>>Bus Kecil</option>
+                <option <?php echo ($jenis =='Sedan')? "selected":""?>>Sedan</option>
+            </select>
+            <br>
+            <label for="jumKend">Jumlah Kendaraan</label>
+            <br>
+            <input type="text" name="jumKend" value ="<?php echo $edit['jumlah_kendaraan']?>"required>
+            <br>
+            <label for="ket">Keterangan</label>
+            <br>
+            <textarea name="ket" class="materialize-textarea"><?php echo $edit['keterangan']?></textarea>
+            <br>
+            <label for="CP">Contact Person</label>
+            <br>
+            <input type="text" id="inputcp" name="CP"  value="<?php echo $edit['cp']?>"required>
+            <br>
+            <button  type="submit" name="submit">Submit</button>
+        </form>
+        </div>
+    </div>
+    
 </body>
 </html>
