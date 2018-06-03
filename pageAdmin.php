@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Login Admin</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
 	<link rel="stylesheet" type="text/css" href="css/pageAdmin.css">
@@ -33,7 +33,7 @@
             <li class="tab"><a class="waves-effect" href="admin-KonfirmAngkutan.php">Konfirmasi Angkutan</a></li>
             <li class="tab"><a class="waves-effect" href="admin-KonfirmBengkel.php">Konfirmasi Bengkel</a></li>
             <li><div class="divider"></div></li>
-            <li class="tab"><a class="waves-effect" href="#!">Logout</a></li>
+            <li class="tab"><a class="waves-effect" href="logout.php">Logout</a></li>
         </ul>
     </div>
     

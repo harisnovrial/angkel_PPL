@@ -35,7 +35,7 @@
                 </div>
             <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
             <a href="#name"><span class="name"><?php echo $_SESSION['username'];?></span></a>
-            <a href="#email"><span class="email"><?php echo $_SESSION['email'];?></span></a>
+            <a href="#email"><span class="email"><?php echo $_SESSION['pangkat'];?></span></a>
             </div>
         </li>
         <li><a href="pagePesan.php" class="waves-effect">Pemesanan Angkutan</a></li>
