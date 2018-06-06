@@ -8,7 +8,7 @@
         $ket = $_POST['ket'];
         $tanggal = $_POST['tanggal'];
         $tanggal = date('Y-m-d', strtotime($tanggal));
-        $status ='Belum diperbaiki';
+        $status ='Sudah diperbaiki';
         $eksistensi_file = array('png','jpg');
         $nama = $_FILES['file']['name'];
         $x = explode('.',$nama);
