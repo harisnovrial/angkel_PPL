@@ -116,7 +116,9 @@
                                 echo "<td>".$rowRusak['keterangan']."</td>";
                                 echo "<td>".$rowRusak['tanggal']."</td>";
                                 echo "<td>".$rowRusak['status']."</td>";
-                                echo "<td>".$rowRusak['file']."</td>";
+                                echo "<td>";
+                                echo "<a href='file/".$rowRusak['file']."'>Download</a>";
+                                echo "</td>";
                                 echo "</tr>";
                                 $no++;
                             }
