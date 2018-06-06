@@ -76,7 +76,7 @@
                              echo "<td>".$rowPemesanan['status']."</td>";
                              echo "<td>";
                              echo '<a href="form-editPemesananAdmin.php?id='.$rowPemesanan['id_pemesanan'].'">Edit |</a>';
-                             echo '<a href="deletePemesanan.php?id='.$rowPemesanan['id_pemesanan'].'"> Hapus</a>';
+                             echo '<a href="deletePemesananAdmin.php?id='.$rowPemesanan['id_pemesanan'].'"> Hapus</a>';
                             //  echo '<a href="cetakPemesanan.php?id='.$rowPemesanan['file'].'"> Cetak</a>';
                              echo "</td>";
                              echo "</tr>";

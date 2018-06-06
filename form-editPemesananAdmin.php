@@ -1,7 +1,7 @@
 <?php
     include 'koneksi.php';
     if(!$_GET['id']){
-        header('location: pageUser.php');
+        header('location: pageAdmin.php');
     }
     $id_pemesanan = $_GET['id'];
 
@@ -64,10 +64,6 @@
             <br>
             <input type="text" name="jumKend" value ="<?php echo $edit['jumlah_kendaraan']?>"required>
             <br>
-            <!-- <label for="ket">Keterangan</label>
-            <br>
-            <textarea name="ket" class="materialize-textarea"><?php echo $edit['keterangan']?></textarea>
-            <br> -->
             <label for="CP">Contact Person</label>
             <br>
             <input type="text" id="inputcp" name="CP"  value="<?php echo $edit['cp']?>"required>
