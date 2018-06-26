@@ -33,8 +33,18 @@
             <li class="tab"><a class="waves-effect" href="admin-InputAng.php">Input Data Anggota</a></li>
             <li class="tab"><a class="waves-effect" href="admin-InputSopir.php">Input Data Sopir</a></li>
             <li><div class="divider"></div></li>
-            <li class="tab"><a class="waves-effect" href="admin-KonfirmAngkutan.php">Konfirmasi Angkutan</a></li>
-            <li class="tab"><a class="waves-effect" href="admin-KonfirmBengkel.php">Konfirmasi Bengkel</a></li>
+            <li class="tab"><a class="waves-effect" href="admin-KonfirmAngkutan.php"><span class="new badge"><?php
+                $sqlNotifAngkutan = "SELECT * FROM pemesanan";
+                $queryNotifAngkutan = mysqli_query($db,$sqlNotifAngkutan);
+                $notifAngkutan = mysqli_num_rows($queryNotifAngkutan);
+                echo $notifAngkutan;
+            ?></span>Konfirmasi Angkutan</a></li>
+            <li class="tab"><a class="waves-effect" href="admin-KonfirmBengkel.php"><span class="new badge"><?php
+                $sqlNotifBengkel = "SELECT * FROM kerusakan";
+                $queryNotifBengkel = mysqli_query($db,$sqlNotifBengkel);
+                $notifBengkel = mysqli_num_rows($queryNotifBengkel);
+                echo $notifBengkel;
+            ?></span>Konfirmasi Bengkel</a></li>
             <li><div class="divider"></div></li>
             <li class="tab"><a class="waves-effect" href="logout.php">Logout</a></li>
         </ul>
@@ -61,9 +71,8 @@
                     <tbody>
                        <?php
                          $no = 1;
-                         $sql = "SELECT * FROM pemesanan ORDER BY tanggal";
+                         $sql = "SELECT * FROM pemesanan ORDER BY tanggal ASC";
                          $query = mysqli_query($db,$sql);
-
                          while($rowPemesanan = mysqli_fetch_array($query)){
                              echo "<tr>";
                              echo "<td>".$no."</td>";
@@ -106,7 +115,7 @@
                             $no = 1;
                             $sqlBengkel = "SELECT * FROM kerusakan ORDER BY tanggal ASC";
                             $queryBengkel = mysqli_query($db,$sqlBengkel);
-
+                            $notifBengkel = mysqli_num_rows($queryBengkel);
                             while($rowRusak = mysqli_fetch_array($queryBengkel)){
                                 echo "<tr>";
                                 echo "<td>".$no."</td>";
