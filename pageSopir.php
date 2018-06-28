@@ -2,6 +2,9 @@
     include 'koneksi.php';
     session_start();
     $id = $_SESSION['nrp'];
+
+    $tanggal = mysqli_query($db,"SELECT tanggal FROM pesanan_angkutan WHERE nrp_sopir= $id");
+    $kinerja = mysqli_query($db,"SELECT jumlah_kendaraan FROM pesanan_angkutan WHERE nrp_sopir= $id");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,8 +80,9 @@
                         echo '<td>'.$row_kerusakan['tanggal'].'</td>';
                         echo '<td>'.$row_kerusakan['status'].'</td>';
                         echo '<td>';
+
                         echo '<a href="form-editKerusakan.php?id='.$row_kerusakan['id_kerusakan'].'">Edit | </a>';
-                        echo '<a href="file/'.$row_kerusakan['file'].'"> Download</a>';
+                        echo '<a href="file/'.$row_kerusakan['file'].'">Cetak</a>';
                         echo'</td>';
                         echo'</tr>';
                         $no++;
@@ -88,7 +92,7 @@
         </table>
         <br>
         <h5>Trip Record</h5>
-        <canvas id="myChart" width="400" height="400"></canvas>
+        <canvas id="myChart" width="20" height="10"></canvas>
     </div>
 </body>
 </html>
@@ -100,10 +104,10 @@ var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: [<?php while ($b = mysqli_fetch_array($tanggal)) { echo '"' . $b['tanggal'] . '",';}?>],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: '# kinerja',
+            data:[<?php while ($a = mysqli_fetch_array($kinerja)) { echo '"' . $a['jumlah_kendaraan'] . '",';}?>] ,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

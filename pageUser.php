@@ -76,7 +76,6 @@
                         echo '<td>'.$tabel_pesan['status'].'</td>';
                         echo '<td>';
                         echo '<a href="form-edit.php?id='.$tabel_pesan['id_pemesanan'].'">Edit |</a>';
-                        echo '<a href="delete.php?id='.$tabel_pesan['id_pemesanan'].'"> Hapus |</a>';
                         echo '<a href="cetakPDF.php?id='.$tabel_pesan['id_pemesanan'].'"> Cetak</a>';
                         echo'</td>';
                         echo'</tr>';
