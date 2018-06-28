@@ -1,3 +1,6 @@
+<?php
+    include('koneksi.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,8 +33,20 @@
             <li class="tab"><a class="waves-effect" href="admin-InputAng.php">Input Data Anggota</a></li>
             <li class="tab"><a class="waves-effect" href="admin-InputSopir.php">Input Data Sopir</a></li>
             <li><div class="divider"></div></li>
-            <li class="tab"><a class="waves-effect" href="admin-KonfirmAngkutan.php">Konfirmasi Angkutan</a></li>
-            <li class="tab"><a class="waves-effect" href="admin-KonfirmBengkel.php">Konfirmasi Bengkel</a></li>
+            <li class="tab"><a class="waves-effect" href="admin-KonfirmAngkutan.php"><span class="new badge"><?php
+                $sqlNotifAngkutan = "SELECT * FROM pemesanan";
+                $queryNotifAngkutan = mysqli_query($db,$sqlNotifAngkutan);
+                $notifAngkutan = mysqli_num_rows($queryNotifAngkutan);
+                echo $notifAngkutan;
+            ?>
+            </span>Konfirmasi Angkutan</a></li>
+            <li class="tab"><a class="waves-effect" href="admin-KonfirmBengkel.php"><span class= "new badge">
+            <?php
+                 $sqlNotifBengkel = "SELECT * FROM kerusakan";
+                 $queryNotifBengkel = mysqli_query($db,$sqlNotifBengkel);
+                 $notifBengkel = mysqli_num_rows($queryNotifBengkel);
+                 echo $notifBengkel;
+            ?></span>Konfirmasi Bengkel</a></li>
             <li><div class="divider"></div></li>
             <li class="tab"><a class="waves-effect" href="logout.php">Logout</a></li>
         </ul>

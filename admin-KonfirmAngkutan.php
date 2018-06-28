@@ -1,3 +1,6 @@
+<?php
+    include('koneksi.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,8 +33,20 @@
             <li class="tab"><a class="waves-effect" href="admin-InputAng.php">Input Data Anggota</a></li>
             <li class="tab"><a class="waves-effect" href="admin-InputSopir.php">Input Data Sopir</a></li>
             <li><div class="divider"></div></li>
-            <li class="tab"><a class="waves-effect" href="admin-KonfirmAngkutan.php">Konfirmasi Angkutan</a></li>
-            <li class="tab"><a class="waves-effect" href="admin-KonfirmBengkel.php">Konfirmasi Bengkel</a></li>
+            <li class="tab"><a class="waves-effect" href="admin-KonfirmAngkutan.php"><span class="new badge"><?php
+                $sqlNotifAngkutan = "SELECT * FROM pemesanan";
+                $queryNotifAngkutan = mysqli_query($db,$sqlNotifAngkutan);
+                $notifAngkutan = mysqli_num_rows($queryNotifAngkutan);
+                echo $notifAngkutan;
+            ?>
+            </span>Konfirmasi Angkutan</a></li>
+            <li class="tab"><a class="waves-effect" href="admin-KonfirmBengkel.php"><span class= "new badge">
+            <?php
+                 $sqlNotifBengkel = "SELECT * FROM kerusakan";
+                 $queryNotifBengkel = mysqli_query($db,$sqlNotifBengkel);
+                 $notifBengkel = mysqli_num_rows($queryNotifBengkel);
+                 echo $notifBengkel;
+            ?></span>Konfirmasi Bengkel</a></li>
             <li><div class="divider"></div></li>
             <li class="tab"><a class="waves-effect" href="#!">Logout</a></li>
         </ul>
@@ -52,17 +67,33 @@
                         <th>Jenis Kendaraan</th>
                         <th>Jumlah Kendaraan</th>
                         <th>Contact</th>
+                        <th>Keterangan</th>
                         <th>Aksi</th>
                     </thead>
                     <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <?php
+                         $no = 1;
+                         $sql = "SELECT * FROM pemesanan ORDER BY tanggal ASC";
+                         $query = mysqli_query($db,$sql);
+                         while($rowPemesanan = mysqli_fetch_array($query)){
+                             echo "<tr>";
+                             echo "<td>".$no."</td>";
+                             echo "<td>".$rowPemesanan['nama_pemesan']."</td>";
+                             echo "<td>".$rowPemesanan['lokasi_antar']."</td>";
+                             echo "<td>".$rowPemesanan['tanggal']."</td>";
+                             echo "<td>".$rowPemesanan['jenis_kendaraan']."</td>";
+                             echo "<td>".$rowPemesanan['jumlah_kendaraan']."</td>";
+                             echo "<td>".$rowPemesanan['cp']."</td>";
+                             echo "<td>".$rowPemesanan['status']."</td>";
+                             echo "<td>";
+                             echo '<a href="form-editPemesananAdmin.php?id='.$rowPemesanan['id_pemesanan'].'">Edit |</a>';
+                             echo '<a href="form-prosesTransaksiPesan.php?id='.$rowPemesanan['id_pemesanan'].'"> Proses |</a>';
+                             echo '<a href="deletePemesanan.php?id='.$rowPemesanan['id_pemesanan'].'"> Hapus</a>';
+                             echo "</td>";
+                             echo "</tr>";
+                             $no++;
+                         }
+                       ?>
                     </tbody>
                 </table>
             </div>

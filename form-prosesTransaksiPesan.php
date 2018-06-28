@@ -1,7 +1,7 @@
 <?php
     include 'koneksi.php';
     if(!$_GET['id']){
-        header('location: pageUser.php');
+        header('location: pageAdmin.php');
     }
     $id_pemesanan = $_GET['id'];
 
@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Form edit Pemesanan</title>
+    <title>Form edit Transaksi Pesanan Angkutan</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
 	<link rel="stylesheet" type="text/css" href="css/formEdit.css">
@@ -31,30 +31,39 @@
 <body>
     <div class="container">
         <div class="row">
-        <form action="proses-edit.php" method="POST" class="col s12">
-            <input type="hidden" name="id" value="<?php echo $edit['id_pemesanan']; ?>">
-            <input type="hidden" name="nrp" value="<?php echo $edit['NRP_Pegawai']; ?>">
+        <form action="proses-editTransaksiPesan.php" method="POST" class="col s12">
+            <input type="hidden" name="id_pemesanan" value="<?php echo $edit['id_pemesanan']; ?>">
+            <br>
+            <label for="id_sopir">NRP Sopir</label>
+            <br>
+            <select name="nrp_sopir">
+                <?php 
+                $sqlSopir = "SELECT NRP FROM sopir";
+                $querySopir = mysqli_query($db,$sqlSopir);
+                while($dataSopir= mysqli_fetch_array($querySopir)){?>
+                <option>
+                <?php echo $dataSopir['NRP'];?>
+            </option>
+                 <?php }?>
+            </select>
+            <br>
             <label for="username">Nama Pemesan</label>
             <br>
-            <input type="text" name="namaPemesan" value="<?php echo $edit['nama_pemesan'];?>"required>
+            <input type="text" name="nama_pemesan" value="<?php echo $edit['nama_pemesan'];?>"required>
+            <br>
+            <label for="username">Lokasi Antar</label>
+            <br>
+            <input type="text" name="lokasi_antar" value="<?php echo $edit['lokasi_antar']?>"required>
             <br>
             <label for="tanggal">Tanggal Pemesanan</label>
             <br>
             <input id="tanggal" type="text" class="datepicker" name="tanggal" value ="<?php echo $edit['tanggal'];?>"required>
             <br>
-            <label for="username">Lokasi Jemput</label>
-            <br>
-            <input type="text" name="lokJemput" value="<?php echo $edit['lokasi_jemput']?>"required>
-            <br>
-            <label for="username">Lokasi Antar</label>
-            <br>
-            <input type="text" name="lokAntar" value="<?php echo $edit['lokasi_antar']?>"required>
-            <br>
             <label for="username">Jenis Kendaraan</label>
             <br>
             <?php $jenis = $edit['jenis_kendaraan'];?>
-            <select name="jenis">
-                <option disabled selected>Pilih Jenis Kendaraan</option>
+            <select name="jenis_kendaraan">
+                <option selected>Pilih Jenis Kendaraan</option>
                 <option <?php echo ($jenis =='Bus Besar')? "selected":"" ?>>Bus Besar</option>
                 <option <?php echo ($jenis =='Bus Kecil')? "selected":"" ?>>Bus Kecil</option>
                 <option <?php echo ($jenis =='Sedan')? "selected":""?>>Sedan</option>
@@ -62,15 +71,15 @@
             <br>
             <label for="jumKend">Jumlah Kendaraan</label>
             <br>
-            <input type="text" name="jumKend" value ="<?php echo $edit['jumlah_kendaraan']?>"required>
+            <input type="text" name="jumlah_kendaraan" value ="<?php echo $edit['jumlah_kendaraan']?>"required>
+            <!-- <br> -->
+            <label for="cp">Contact Person</label>
             <br>
+            <input type="text" id="inputcp" name="cp"  value="<?php echo $edit['cp']?>"required>
+            <!-- <br> -->
             <label for="ket">Keterangan</label>
             <br>
-            <textarea name="ket" class="materialize-textarea"><?php echo $edit['keterangan']?></textarea>
-            <br>
-            <label for="CP">Contact Person</label>
-            <br>
-            <input type="text" id="inputcp" name="CP"  value="<?php echo $edit['cp']?>"required>
+            <textarea name="status" class="materialize-textarea"><?php echo $edit['status']?></textarea>
             <br>
             <button  type="submit" name="submit">Submit</button>
         </form>
