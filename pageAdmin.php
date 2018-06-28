@@ -59,35 +59,31 @@
                 <table class="responsive-table">
                     <thead>
                         <th>No</th>
+                        <th>NRP</th>
                         <th>Pemesan</th>
                         <th>Tujuan</th>
                         <th>Tanggal</th>
                         <th>Jenis Kendaraan</th>
-                        <th>Jumlah Kendaraan</th>
+                        <th>Jumlah Penumpang</th>
                         <th>Contact</th>
                         <th>Status</th>
-                        <th>Aksi</th>
                     </thead>
                     <tbody>
                        <?php
                          $no = 1;
-                         $sql = "SELECT * FROM pemesanan ORDER BY tanggal ASC";
+                         $sql = "SELECT * FROM pesanan_angkutan ORDER BY tanggal ASC";
                          $query = mysqli_query($db,$sql);
                          while($rowPemesanan = mysqli_fetch_array($query)){
                              echo "<tr>";
                              echo "<td>".$no."</td>";
+                             echo "<td>".$rowPemesanan['nrp_sopir']."</td>";
                              echo "<td>".$rowPemesanan['nama_pemesan']."</td>";
-                             echo "<td>".$rowPemesanan['lokasi_antar']."</td>";
+                             echo "<td>".$rowPemesanan['tujuan']."</td>";
                              echo "<td>".$rowPemesanan['tanggal']."</td>";
                              echo "<td>".$rowPemesanan['jenis_kendaraan']."</td>";
                              echo "<td>".$rowPemesanan['jumlah_kendaraan']."</td>";
                              echo "<td>".$rowPemesanan['cp']."</td>";
                              echo "<td>".$rowPemesanan['status']."</td>";
-                             echo "<td>";
-                             echo '<a href="form-editPemesananAdmin.php?id='.$rowPemesanan['id_pemesanan'].'">Edit |</a>';
-                             echo '<a href="deletePemesananAdmin.php?id='.$rowPemesanan['id_pemesanan'].'"> Hapus</a>';
-                            //  echo '<a href="cetakPemesanan.php?id='.$rowPemesanan['file'].'"> Cetak</a>';
-                             echo "</td>";
                              echo "</tr>";
                              $no++;
                          }
@@ -108,7 +104,6 @@
                         <th>Keterangan</th>
                         <th>Tanggal</th>
                         <th>Status</th>
-                        <th>Nota</th>
                     </thead>
                     <tbody>
                         <?php
@@ -125,9 +120,6 @@
                                 echo "<td>".$rowRusak['keterangan']."</td>";
                                 echo "<td>".$rowRusak['tanggal']."</td>";
                                 echo "<td>".$rowRusak['status']."</td>";
-                                echo "<td>";
-                                echo "<a href='file/".$rowRusak['file']."'>Download</a>";
-                                echo "</td>";
                                 echo "</tr>";
                                 $no++;
                             }

@@ -1,3 +1,6 @@
+<?php
+    include('koneksi.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,8 +33,18 @@
             <li class="tab"><a class="waves-effect" href="admin-InputAng.php">Input Data Anggota</a></li>
             <li class="tab"><a class="waves-effect" href="admin-InputSopir.php">Input Data Sopir</a></li>
             <li><div class="divider"></div></li>
-            <li class="tab"><a class="waves-effect" href="admin-KonfirmAngkutan.php">Konfirmasi Angkutan</a></li>
-            <li class="tab"><a class="waves-effect" href="admin-KonfirmBengkel.php">Konfirmasi Bengkel</a></li>
+            <li class="tab"><a class="waves-effect" href="admin-KonfirmAngkutan.php"><span class="new badge"><?php
+                $sqlNotifAngkutan = "SELECT * FROM pemesanan";
+                $queryNotifAngkutan = mysqli_query($db,$sqlNotifAngkutan);
+                $notifAngkutan = mysqli_num_rows($queryNotifAngkutan);
+                echo $notifAngkutan;
+            ?></span>Konfirmasi Angkutan</a></li>
+            <li class="tab"><a class="waves-effect" href="admin-KonfirmBengkel.php"><span class="new badge"><?php
+                $sqlNotifBengkel = "SELECT * FROM kerusakan";
+                $queryNotifBengkel = mysqli_query($db,$sqlNotifBengkel);
+                $notifBengkel = mysqli_num_rows($queryNotifBengkel);
+                echo $notifBengkel;
+            ?></span>Konfirmasi Bengkel</a></li>
             <li><div class="divider"></div></li>
             <li class="tab"><a class="waves-effect" href="#!">Logout</a></li>
         </ul>
@@ -55,14 +68,29 @@
                         <th>Aksi</th>
                     </thead>
                     <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <?php
+                            $no = 1;
+                            $sqlBengkel = "SELECT * FROM kerusakan ORDER BY tanggal ASC";
+                            $queryBengkel = mysqli_query($db,$sqlBengkel);
+                            $notifBengkel = mysqli_num_rows($queryBengkel);
+                            while($rowRusak = mysqli_fetch_array($queryBengkel)){
+                                echo "<tr>";
+                                echo "<td>".$no."</td>";
+                                echo "<td>".$rowRusak['NRP_sopir']."</td>";
+                                echo "<td>".$rowRusak['no_angkutan']."</td>";
+                                echo "<td>".$rowRusak['kerusakan']."</td>";
+                                echo "<td>".$rowRusak['status']."</td>";
+                                echo "<td>".$rowRusak['tanggal']."</td>";
+                                echo "<td>".$rowRusak['file']."</td>";
+                                echo "<td>";
+                                echo '<a href="form-editKerusakan.php?id='.$rowRusak['id_kerusakan'].'">Edit |</a>';
+                                echo '<a href="deleteKerusakan.php?id='.$rowRusak['id_kerusakan'].'"> Hapus |</a>';
+                                echo '<a href="file/'.$rowRusak['file'].'">Cetak</a>';
+                                echo "</td>";
+                                echo "</tr>";
+                                $no++;
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
